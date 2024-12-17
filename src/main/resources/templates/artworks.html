@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ - Pets Shop</title>
+    <!-- Sử dụng Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Thanh điều hướng -->
+<nav class="navbar navbar-expand-lg shadow-sm" style="background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%); color: white;">
+    <div class="container">
+        <a class="navbar-brand text-white" href="#">Pets Shop</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="color: white;"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto me-3">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#" style="font-weight: 500;">Trang Chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/cart" style="font-weight: 500;">Giỏ Hàng</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/checkout" style="font-weight: 500;">Thanh Toán</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/login" style="font-weight: 500;">Đăng Nhập</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/register" style="font-weight: 500;">Đăng Ký</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/admin" style="font-weight: 500;">Admin</a>
+                </li>
+            </ul>
+            <!-- Search Form -->
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search" style="border-radius: 20px;">
+            </form>
+        </div>
+    </div>
+</nav>
+
+<style>
+    /* Custom styles */
+    .navbar-nav .nav-link {
+        padding: 10px 20px;
+        transition: color 0.3s, background-color 0.3s;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: #2575fc;
+        background-color: #ffffff33;
+        border-radius: 5px;
+    }
+
+    form .form-control {
+        min-width: 180px;
+    }
+
+    form .btn-outline-light {
+        color: white;
+        border-color: white;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    form .btn-outline-light:hover {
+        background-color: white;
+        color: #2575fc;
+    }
+</style>
+
+<header class="banner text-dark py-5" style="background-image: url('images/banner-image-bg.jpg'); background-size: cover; background-position: center;">
+    <!-- Carousel -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
+
+        <!-- Carousel Images with Overlay -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="overlay-image" style="background-image: url('images/blog-2.jpg');"></div>
+                <div class="carousel-caption d-flex flex-column justify-content-center h-100">
+                    <h1 class="display-6" style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Những người bạn tuyệt vời</h1>
+                    <p style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Tận hưởng những khoảnh khắc đẹp nhất với con sen!!!</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="overlay-image" style="background-image: url('images/hero.jpg');"></div>
+                <div class="carousel-caption d-flex flex-column justify-content-center h-100">
+                    <h1 class="display-6" style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Sự Kết Hợp Hoàn Hảo</h1>
+                    <p style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Thú cưng phong phú, sắc màu cuốn hút.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="overlay-image" style="background-image: url('images/offer.jpg');"></div>
+                <div class="carousel-caption d-flex flex-column justify-content-center h-100">
+                    <h1 class="display-6" style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Sự Kết Hợp Hoàn Hảo</h1>
+                    <p style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Thú cưng phong phú, sắc màu cuốn hút.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="overlay-image" style="background-image: url('images/blog-1.jpg');"></div>
+                <div class="carousel-caption d-flex flex-column justify-content-center h-100">
+                    <h1 class="display-6" style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Hạnh phúc là có một thú cưng bên cạnh</h1>
+                    <p style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Cùng chúng tôi tìm kiếm người bạn bốn chân tuyệt vời cho bạn!</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="overlay-image" style="background-image: url('images/dog.jpg');"></div>
+                <div class="carousel-caption d-flex flex-column justify-content-center h-100">
+                    <h1 class="display-6" style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Với chúng tôi, mọi thú cưng đều là một phần của gia đình</h1>
+                    <p style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Hãy đến và gặp gỡ những người bạn đáng yêu!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</header>
+
+<!-- Danh sách Pets -->
+<section class="container mt-5">
+    <h2 class="mb-4">Danh Sách Pets</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4" th:each="artwork : ${artworks}">
+            <div class="card h-100 shadow-sm">
+                <img th:src="@{${artwork.imageUrl}}" class="card-img-top" alt="Thú cưng">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${artwork.title}">Artwork Title</h5>
+                    <p class="card-text" th:text="${artwork.description}">Artwork Description</p>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <span class="text-muted" th:text="${artwork.price}">Price</span>
+                    <a th:href="@{/{id}(id=${artwork.id})}" class="btn btn-primary">Xem Chi Tiết</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Sửa lỗi cấu trúc carousel */
+    .carousel-item {
+        height: 80vh; /* Giới hạn chiều cao carousel */
+        position: relative;
+    }
+
+    .overlay-image {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        filter: brightness(0.7);
+    }
+
+    .carousel-caption {
+        z-index: 2;
+        color: white;
+        text-align: center;
+    }
+
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+        filter: invert(1);
+    }
+
+    /* Responsive Layout */
+    @media (max-width: 768px) {
+        .carousel-item {
+            height: 60vh; /* Giảm chiều cao carousel trên thiết bị nhỏ */
+        }
+    }
+
+    .card {
+        border: none;
+        border-radius: 15px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        background: #fff;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-img-top {
+        height: 250px;
+        object-fit: cover;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: #555;
+        margin-bottom: 1rem;
+    }
+
+    .card-text {
+        font-size: 1rem;
+        color: #777;
+        line-height: 1.5;
+    }
+
+    .card-footer {
+        padding: 1rem 1.5rem;
+        background-color: #f9f9f9;
+        border-top: 1px solid #eee;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .card-footer .text-muted {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #888;
+    }
+
+    .card-footer .btn-primary {
+        font-size: 0.9rem;
+        font-weight: 600;
+        background-color: #007bff;
+        border: none;
+        border-radius: 20px;
+        padding: 0.5rem 1.5rem;
+        transition: background-color 0.3s;
+    }
+
+    .card-footer .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .col-md-4 {
+        flex: 0 0 calc(33.333% - 15px);
+        max-width: calc(33.333% - 15px);
+    }
+</style>
+
+
+<!-- Footer -->
+<footer class="footer bg-light py-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h2 class="footer-logo">PETS SHOP</h2>
+                <p>Mô tả cửa hàng tại đây...</p>
+            </div>
+            <div class="col-md-2 mb-4">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Trang chủ</a></li>
+                    <li><a href="#">Giỏ hàng</a></li>
+                    <li><a href="#">Thanh toán</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 mb-4">
+                <h5>Help & Info</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Track Your Order</a></li>
+                    <li><a href="#">Returns Policies</a></li>
+                    <li><a href="#">Shipping & Delivery</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 mb-4">
+                <h5>Contact Us</h5>
+                <p>Email: <a href="mailto:yourinfo@email.com">kynguyentrung2k4@email.com</a></p>
+                <p>Phone: +972116762</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -9,6 +9,7 @@ import java.util.List;
 
 @Service
 public class ArtworkService {
+
     @Autowired
     private ArtworkRepository artworkRepository;
 
@@ -17,10 +18,14 @@ public class ArtworkService {
     }
 
     public Artwork getArtworkById(Long id) {
-        return artworkRepository.findById(id).orElse(null);
+        return artworkRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid artwork ID: " + id));
     }
 
     public void saveArtwork(Artwork artwork) {
         artworkRepository.save(artwork);
+    }
+
+    public void deleteArtworkById(Long id) {
+        artworkRepository.deleteById(id);
     }
 }

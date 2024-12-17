@@ -16,7 +16,6 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 @EnableWebSecurity
 public class SpringSecurity {
-
     @Autowired
     private UserDetailsService userDetailsService;
 
@@ -62,7 +61,7 @@ public class SpringSecurity {
             if (isAdmin) {
                 response.sendRedirect("/admin"); // Redirect to /admin for admin users
             } else {
-                response.sendRedirect("/"); // Redirect to /index for other users
+                response.sendRedirect("/login"); // Redirect to /index for other users
             }
         };
     }
